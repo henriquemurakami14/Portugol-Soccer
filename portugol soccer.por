@@ -5,7 +5,7 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Teclado --> t
 	
 	cadeia atleta, sexo, pais, enter
-	inteiro n_caracteres_atleta, nacionalidade = 0
+	inteiro n_caracteres_atleta, nacionalidade
 	
 	funcao inicio()
 	{
@@ -89,7 +89,7 @@ programa// PORTUGOL SOCCER
       	pare
 		}
 
-		u.aguarde(700)
+		u.aguarde(3000)
 		limpa()
 		linha()
 
