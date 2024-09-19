@@ -1,76 +1,114 @@
-programa// PORTUGOL SOCCER
+programa// PORTUGOL SOCCER
 {
 	inclua biblioteca Util --> u
-	inclua biblioteca Texto --> t
-	inclua biblioteca Teclado --> te
-	caracter enter
-	cadeia atleta, sexo, pais
-	inteiro n_caracteres_atleta, nacionalidade
+	inclua biblioteca Texto --> txt
+	inclua biblioteca Teclado --> t
+	
+	cadeia atleta, sexo, pais, enter
+	inteiro n_caracteres_atleta, nacionalidade = 0
 	
 	funcao inicio()
 	{
 		escreva("BEM VINDOS AO PORTUGOL SOCCER!\n")
-		escreva("Digite ENTER para começar a jogar!")
-		leia(enter)
 		linha()
-		u.aguarde(2000)
+		
+		escreva("Pressione ENTER para continuar...\n")
+ 			leia(enter)
+  		enquanto (enter != ""){
+    	 		escreva("Apenas pressione ENTER!")
+     		leia(enter)
+  		}
+  		
+		u.aguarde(700)
 		limpa()
+		linha()
+		u.aguarde(1000)
+		
 		escreva("Para começar") aguarde()
 		escreva("\nDigite o nome do seu atleta: ")
 		leia(atleta)
-		n_caracteres_atleta = t.numero_caracteres(atleta)
+		n_caracteres_atleta = txt.numero_caracteres(atleta)
+		
 		enquanto (n_caracteres_atleta == 1){
 			escreva("Nome Inválido Seu Nome deve conter no minímo 2 caracteres! Digite Novamente! \nNome do seu atleta: ")
 			leia(atleta)
-			n_caracteres_atleta = t.numero_caracteres(atleta)
+			n_caracteres_atleta = txt.numero_caracteres(atleta)
 		}
 		escreva("Nome feito com sucesso!")
+		
 		u.aguarde(1000)
 		limpa()
 		linha()
+		
 		escreva("Seu sexo [M ou F]: ")
 		leia(sexo)
-		sexo = t.extrair_subtexto(t.caixa_alta(sexo), 0, 1)
+		sexo = txt.extrair_subtexto(txt.caixa_alta(sexo), 0, 1)
 		
 		enquanto ( sexo != "M" e sexo != "F"){
 			escreva("Caracter Inválido! Digite Novamente! \nSeu sexo: ")
 			leia(sexo)
 		}
-
+		
+		u.aguarde(1000)
+		limpa()
+		linha()
+		u.aguarde(700)
+		
 		escreva("Vamos ver aonde a mágica desses seus pés vem...")
-
-		escreva("Digite sua Nacionalidade: ")
+		escreva("\n[ 1 ] Brasil\n[ 2 ] Argentina\n[ 3 ] Inglaterra\n[ 4 ] França\n[ 5 ] Alemanha\n[ 6 ] Espanha\n")
+		linha()
+		escreva("\nDigite sua Nacionalidade: ")
 		leia(nacionalidade)
+		
+		u.aguarde(700)
+		
 		escolha(nacionalidade){
       caso 1:
       pais = "BRASIL"
-      pare
-      
+    	 	escreva("Brasil o país do futebol arte! Ótima escolha jovem gafanhoto.")
+    	 	pare
       caso 2:
       pais = "ARGENTINA"
-      pare
-      
+      	escreva("Argentina uma ótima escolha jovem amigo.")
+      	pare
       caso 3:
       pais = "INGLATERRA"
-      pare
-      
+      	escreva("Inglaterra a terra do melhor futebol do mundo atualmente! Escolha clássica jovem.")
+      	pare
       caso 4:
       pais = "FRANCA"
-      pare
-      
+      	escreva("França o país do croissant! Boa escolha meu amigo.")
+      	pare
       caso 5:
       pais = "ALEMANHA"
-      pare
-      
+      	escreva("Alemanha um país diferente dos iguais! Uma escolha exótica meu atleta.")
+      	pare
       caso 6:
       pais = "ESPANHA"
-      pare
-      
+      	escreva("Espanha o país onde muitas estrelas nascem! Uma escolha perfeita meu caro amigo.")
+      	pare
 		}
+
+		u.aguarde(700)
+		limpa()
+		linha()
+
+		
+	
 	}
 
+
+
+
+
+
+
+
+
+
+
+
 	funcao linha(){
-		limpa()
 		para(inteiro i = 0 ; i < 20; i++){
 		escreva("=-=")
 		}
@@ -84,14 +122,3 @@ programa// PORTUGOL SOCCER
 	}
 	
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 125; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
