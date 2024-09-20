@@ -5,7 +5,7 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Teclado --> t
 	
 	cadeia atleta, sexo, pais
-	inteiro n_caracteres_atleta, nacionalidade, chute_teste1
+	inteiro n_caracteres_atleta, nacionalidade, chute_teste1, chute_teste2, chute_teste3
 	
 	funcao inicio()
 {
@@ -88,7 +88,7 @@ programa// PORTUGOL SOCCER
 		linha()
 
 		escreva("Vamos começar o seu teste para o profissional!")
-		escreva(" Os testes vão envolver força, passe e habilidade com os pés.\n")
+		escreva(" Os testes vão envolver chute, passe e habilidade com os pés.\n")
 		enter()
 		
 		limpa()
@@ -101,10 +101,48 @@ programa// PORTUGOL SOCCER
 		escreva("\n[ 1 ] Chute no ângulo\n[ 2 ] Chute rasteiro\n[ 3 ] Chute colocado no canto\n")
 		linha()
 		escreva("Digite sua opção: ")
-		leia(chute_teste1)
+		leia(chute_teste1)]
 		
+		limpa()
+		linha()
+		aguarde()
+		
+		se(chute_teste1 == 1 ou chute_teste1 == 2){
+			escreva("\nBOA jovem gafonhoto!! Ótimo gol foi um de placa mesmo!\n")
+			u.aguarde(700)
+			enter()
+		}
+		se senao(chute_teste1 == 3){
+			escreva("\nNão foi dessa fez caro amigo! Seu chute bateu na trave!\n")
+			u.aguarde(700)
+			enter()
+		}
+		limpa()
+		linha()
+
+		escreva("        TESTE 02\n")
+		linha()
+		escreva("Você está no meio do campo com a bola sobe os seus pés") aguarde()
+		escreva("\nVocê deseja passar aonde???")
+		escreva("\n[ 1 ] Passar para o volante a sua direita\n[ 2 ] Cruzar para o ponta esquerda\n[ 3 ] Passar a bola para o zagueiro atrás\n")
+		linha()
+		escreva("Digite sua opção: ")
+		leia(chute_teste2)]
+
+		limpa()
+		linha()
+		aguarde()
+
+		se(chute_teste2 == 1){
+			escreva("Boa escolha meu atleta! Porém o volante infelizmente estava marcado, não foi desta vez..")
+		}
+		se senao(chute_teste2 == 2){
+			escreva("Escolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponto consegue pegar a bola e marca um gol de placa! Parabéns ", atleta)
+		}
 
 
+
+		
 		
 }
 	funcao enter(){
