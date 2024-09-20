@@ -4,21 +4,15 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Texto --> txt
 	inclua biblioteca Teclado --> t
 	
-	cadeia atleta, sexo, pais, enter
-	inteiro n_caracteres_atleta, nacionalidade
+	cadeia atleta, sexo, pais
+	inteiro n_caracteres_atleta, nacionalidade, chute_teste1
 	
 	funcao inicio()
-	{
+{
 		escreva("BEM VINDOS AO PORTUGOL SOCCER!\n")
 		linha()
+		enter()
 		
-		escreva("Pressione ENTER para continuar...\n")
- 			leia(enter)
-  		enquanto (enter != ""){
-    	 		escreva("Apenas pressione ENTER!")
-     		leia(enter)
-  		}
-  		
 		u.aguarde(700)
 		limpa()
 		linha()
@@ -93,21 +87,35 @@ programa// PORTUGOL SOCCER
 		limpa()
 		linha()
 
+		escreva("Vamos começar o seu teste para o profissional!")
+		escreva(" Os testes vão envolver força, passe e habilidade com os pés.\n")
+		enter()
 		
-	
+		limpa()
+		linha()
+
+		escreva("        TESTE 01\n")
+		linha()
+		escreva("A bola está parando no centro da grade área") aguarde()
+		escreva("\nVocê deseja chutar aonde???")
+		escreva("\n[ 1 ] Chute no ângulo\n[ 2 ] Chute rasteiro\n[ 3 ] Chute colocado no canto\n")
+		linha()
+		escreva("Digite sua opção: ")
+		leia(chute_teste1)
+		
+
+
+		
+}
+	funcao enter(){
+		cadeia enter
+		escreva("Pressione ENTER para continuar...\n")
+ 			leia(enter)
+  		enquanto (enter != ""){
+    	 		escreva("Apenas pressione ENTER!")
+     		leia(enter)
+  		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 	funcao linha(){
 		para(inteiro i = 0 ; i < 20; i++){
 		escreva("=-=")
