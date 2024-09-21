@@ -4,8 +4,14 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Texto --> txt
 	inclua biblioteca Teclado --> t
 	
-	cadeia atleta, sexo, pais, pe
-	inteiro n_caracteres_atleta, nacionalidade, chute_teste1, chute_teste2, chute_teste3, pe_dominante
+	cadeia atleta, sexo, pais, pe, time_sorteado
+	inteiro n_caracteres_atleta, nacionalidade, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
+	cadeia time_sorteado_brasil[3] = {"PALMEIRAS", "FLAMENGO", "CORINTHIANS"}
+	cadeia time_sorteado_argentina[3] = {"BOCA JUNIORS", "RIVER PLATE", "LANUS"}
+	cadeia time_sorteado_inglaterra[3] = {"CHELSEA", "ARSENAL", "MANCHESTER UNITED"}
+	cadeia time_sorteado_franca[3] = {"PARIS SAINT GERMAIN", "MONACO", "LYON"}
+	cadeia time_sorteado_alemanha[3] = {"BORRUSIA DORTMUND", "BAYERN DE MUNIQUE", "BAYERN DE LEVERKUSEN"}
+	cadeia time_sorteado_espanha[3] = {"BARCELONA", "REAL MADRID", "ATLETICO DE MADRID"}
 	
 	funcao inicio()
 {
@@ -43,7 +49,9 @@ programa// PORTUGOL SOCCER
 		enquanto ( sexo != "M" e sexo != "F"){
 			escreva("Caracter Inválido! Digite Novamente! \nSeu sexo: ")
 			leia(sexo)
+			sexo = txt.extrair_subtexto(txt.caixa_alta(sexo), 0, 1)
 		}
+		escreva("Sexo definido com sucesso!")
 		
 		u.aguarde(1000)
 		limpa()
@@ -152,11 +160,13 @@ programa// PORTUGOL SOCCER
 			escreva("\nBOA jovem gafonhoto!! Ótimo gol foi um gol de placa!\n")
 			u.aguarde(700)
 			enter()
+			pontuacao_teste += 3
 		}
 		senao se(chute_teste1 == 3){
 			escreva("\nNão foi dessa fez caro amigo! Seu chute bateu na trave!\n")
 			u.aguarde(700)
 			enter()
+			pontuacao_teste += 1
 		}
 		limpa()
 		linha()
@@ -184,16 +194,19 @@ programa// PORTUGOL SOCCER
 			escreva("\nBoa escolha meu atleta! Porém o volante infelizmente estava marcado, não foi desta vez..\n")
 			u.aguarde(1000)
 			enter()
+			pontuacao_teste += 2
 		}
 		senao se(chute_teste2 == 2){
-			escreva("\nEscolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponto consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"\n")
+			escreva("\nEscolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponto consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"!\n")
 			u.aguarde(1000)
 			enter()
+			pontuacao_teste += 3
 		}
 		senao se(chute_teste2 == 3){
 			escreva("\nSeu técnico não gostou nada disso jovem gafanhoto... Você passa para o zagueiro e o seu time perde a chance de contra-atacar.\n")
 			u.aguarde(1000)
 			enter()
+			pontuacao_teste += 1
 		}
 		limpa()
 		linha()
@@ -221,22 +234,175 @@ programa// PORTUGOL SOCCER
 			escreva("\nPerfeita escolha ", atleta,"! O seu técnico gostou muito da atitude como o Neymar dizia \"Ousadia e Alegria!\"\n")
 			u.aguarde(700)
 			enter()
+			pontuacao_teste += 3
 		}
 		senao se(chute_teste3 == 2){
 			escreva("\nQue carretilha linda rapaz!! Você dribla o zagueiro, fica cara-cara com o gol e faz um golaço! Parábens ", atleta, "\n")
 			u.aguarde(700)
 			enter()
+			pontuacao_teste += 3
 		}
 		senao se(chute_teste3 == 3){
 			escreva("\nFoi por pouco jovem! Você corta para seu pé ", pe, " com sucesso e chuta na trave.. Que pecado!\n")
 			u.aguarde(700)
 			enter()
+			pontuacao_teste += 1
 		}
+		
 		limpa()
 		linha()
 
+		escreva("Os seus testes finalizaram jovem gafanhoto! Vamos descobrir o seus resultados")
+		aguarde()
 
+		escreva("\n")
+		se (pontuacao_teste == 9){
+			escreva("Excepcional ", atleta, "! Parábens seus resultados impressionaram muito os olheiros jovem gafanhoto!")
+		}
+		senao se (pontuacao_teste == 3){
+			escreva("Não foi o esperado ", atleta, "! Porém não desista jovem, vai haver dias de muitas glórias para ti!")
+		}
+		senao{
+			escreva("Ótimo jovem!! Seus resultados chamaram a atenção de alguns clubes!")
+		}
+		escreva("\n")
+
+		u.aguarde(1000)
+		enter()
+		limpa()
+		linha()
+
+		escreva("Jovem então vamos ver quais clubes impressionaram o seu futebol arte! Aguarde uns instantes para nós verificarmos")
+		aguarde()
+		u.aguarde(1000)
+
+		escreva("\n")
+		se (nacionalidade == 1){
+			time_sorteado = time_sorteado_brasil[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_brasil[i])
+				u.aguarde(50)
+				limpa()
+			}
+		}
+		senao se (nacionalidade == 2){
+			time_sorteado = time_sorteado_argentina[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_argentina[i])
+				u.aguarde(50)
+				limpa()
+			}	
+		}
+		senao se (nacionalidade == 3){
+			time_sorteado = time_sorteado_inglaterra[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_inglaterra[i])
+				u.aguarde(50)
+				limpa()
+			}	
+		}
+		senao se (nacionalidade == 4){
+			time_sorteado = time_sorteado_franca[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_franca[i])
+				u.aguarde(50)
+				limpa()
+			}	
+		}
+		senao se (nacionalidade == 5){
+			time_sorteado = time_sorteado_alemanha[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_alemanha[i])
+				u.aguarde(50)
+				limpa()
+			}	
+		}
+		senao se (nacionalidade == 6){
+			time_sorteado = time_sorteado_espanha[u.sorteia(1, 3) - 1]
+			para( inteiro i = 0; i <= 3; i++){
+				se(i == 3){
+					i = 0
+					contador += 1
+				}
+				se(contador == 15){
+					pare
+				}
+				escreva(time_sorteado_espanha[i])
+				u.aguarde(50)
+				limpa()
+			}	
+		}
+		linha()
+		escreva("Carregando")
+		aguarde()
+		escreva("\nO ", time_sorteado, " gostou muito do seu futebol e dos seus talentos com os pés e quer te contratar!\n")
+		u.aguarde(700)
+		enter()
+		limpa()
 		
+		escreva("Agora você faz parte do ", time_sorteado," que responsabilidade em jovem gafanhoto eim!\n")
+		escreva("Então temos que decidir algumas coisas ", atleta)
+		aguarde()
+		escreva("\n")
+		enter()
+		limpa()
+		escreva("É muito importante estarmos trajados como diria Romário. Então precisamos definir seu visual para você ficar no estilo!\n")
+		u.aguarde(700)
+		enter()
+		limpa()
+		linha()
+		escreva("Digite o número da camisa que você vai utilizar nesta temporada: ")
+		leia(numero_camisa)
+		enquanto(numero_camisa > 99 ou numero_camisa < 0){
+			se(numero_camisa > 99){
+			escreva("Sua camisa deve conter no máximo 2 dígitos.")}
+			se(numero_camisa < 0){
+			escreva("Sua camisa não pode ter números negativos!")}
+			escreva(" Digite novamente: ")
+			leia(numero_camisa)
+		}
+		
+
+
+
+
+
+
 		
 }
 	funcao enter(){
