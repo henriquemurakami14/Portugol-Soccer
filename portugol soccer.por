@@ -139,7 +139,7 @@ programa// PORTUGOL SOCCER
 
 		escreva("        TESTE 01\n")
 		linha()
-		escreva("A bola está parando no centro da grade área") aguarde()
+		escreva("A bola está parando no centro da grande área") aguarde()
 		u.aguarde(800)
 		escreva("\nVocê deseja chutar aonde???")
 		escreva("\n[ 1 ] Chute no ângulo\n[ 2 ] Chute rasteiro\n[ 3 ] Chute colocado no canto\n")
