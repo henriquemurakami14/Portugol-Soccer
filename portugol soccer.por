@@ -15,7 +15,17 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
-		escreva("BEM VINDOS AO PORTUGOL SOCCER!\n")
+		para (inteiro i = 0; i < 3; i++){
+			se(i != 1){
+			para(inteiro j=0; j <= 19; j++){
+				escreva("==")
+			}
+			}senao{
+				escreva("|           PORTUGOL SOCCER           |\n")
+				escreva("|            BEM - VINDOS             |")
+			}
+			escreva("\n")
+			}
 		linha()
 		enter()
 		
