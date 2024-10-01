@@ -4,8 +4,8 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Texto --> txt
 	inclua biblioteca Teclado --> t
 	
-	cadeia atleta, sexo, pais, pe, time_sorteado
-	inteiro n_caracteres_atleta, nacionalidade, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
+	cadeia atleta = " ", sexo = " ", pais = " ", pe = " ", time_sorteado = " "
+	inteiro n_caracteres_atleta, nacionalidade = 0, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
 	cadeia time_sorteado_brasil[3] = {"PALMEIRAS", "FLAMENGO", "CORINTHIANS"}
 	cadeia time_sorteado_argentina[3] = {"BOCA JUNIORS", "RIVER PLATE", "LANUS"}
 	cadeia time_sorteado_inglaterra[3] = {"CHELSEA", "ARSENAL", "MANCHESTER UNITED"}
@@ -15,6 +15,30 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
+		start() 
+		
+		dados_jogador()
+
+		partida_teste()
+		
+		time_selecionado()
+
+		numero_camisa_funcao()
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+	funcao start(){
 		para (inteiro i = 0; i < 3; i++){
 			se(i != 1){
 			para(inteiro j=0; j <= 19; j++){
@@ -31,6 +55,8 @@ programa// PORTUGOL SOCCER
 		
 		u.aguarde(700)
 		limpa()
+	}
+	funcao dados_jogador(){
 		linha()
 		u.aguarde(1000)
 		
@@ -39,8 +65,8 @@ programa// PORTUGOL SOCCER
 		leia(atleta)
 		n_caracteres_atleta = txt.numero_caracteres(atleta)
 		
-		enquanto (n_caracteres_atleta == 1){
-			escreva("Nome Inválido Seu Nome deve conter no minímo 2 caracteres! Digite Novamente! \nNome do seu atleta: ")
+		enquanto (n_caracteres_atleta == 1 ou n_caracteres_atleta > 26){
+			escreva("Nome Inválido! Digite Novamente! \nNome do seu atleta: ")
 			leia(atleta)
 			n_caracteres_atleta = txt.numero_caracteres(atleta)
 		}
@@ -54,12 +80,12 @@ programa// PORTUGOL SOCCER
 		
 		escreva("Seu sexo [M ou F]: ")
 		leia(sexo)
-		sexo = txt.extrair_subtexto(txt.caixa_alta(sexo), 0, 1)
+		sexo = txt.caixa_alta(sexo)
 		
-		enquanto ( sexo != "M" e sexo != "F"){
+		enquanto ( (sexo != "M" e sexo != "MASCULINO") e (sexo != "F" e sexo != "FEMININO")){
 			escreva("Caracter Inválido! Digite Novamente! \nSeu sexo: ")
 			leia(sexo)
-			sexo = txt.extrair_subtexto(txt.caixa_alta(sexo), 0, 1)
+			sexo = txt.caixa_alta(sexo)
 		}
 		escreva("Sexo definido com sucesso!")
 		
@@ -135,11 +161,14 @@ programa// PORTUGOL SOCCER
       	escreva("Espanha o país onde muitas estrelas nascem! Uma escolha perfeita meu caro amigo.")
       	pare
 		}
-
+		
 		u.aguarde(3000)
 		limpa()
-		linha()
+	}
 
+	funcao partida_teste(){
+		linha()
+		
 		escreva("Vai começar o seu jogo teste para o profissional!")
 		escreva(" Os testes vão envolver chute, passe e habilidade com os pés.\n")
 		enter()
@@ -149,7 +178,7 @@ programa// PORTUGOL SOCCER
 
 		escreva("        TESTE 01\n")
 		linha()
-		escreva("A bola está parando no centro da grande área") aguarde()
+		escreva("A bola está parada no centro da grande área") aguarde()
 		u.aguarde(800)
 		escreva("\nVocê deseja chutar aonde???")
 		escreva("\n[ 1 ] Chute no ângulo\n[ 2 ] Chute rasteiro\n[ 3 ] Chute colocado no canto\n")
@@ -207,7 +236,7 @@ programa// PORTUGOL SOCCER
 			pontuacao_teste += 2
 		}
 		senao se(chute_teste2 == 2){
-			escreva("\nEscolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponto consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"!\n")
+			escreva("\nEscolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponta consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"!\n")
 			u.aguarde(1000)
 			enter()
 			pontuacao_teste += 3
@@ -280,6 +309,9 @@ programa// PORTUGOL SOCCER
 		u.aguarde(1000)
 		enter()
 		limpa()
+	}
+
+	funcao time_selecionado(){
 		linha()
 
 		escreva("Jovem então vamos ver quais clubes impressionaram o seu futebol arte! Aguarde uns instantes para nós verificarmos")
@@ -384,6 +416,10 @@ programa// PORTUGOL SOCCER
 		u.aguarde(700)
 		enter()
 		limpa()
+	}
+
+	funcao numero_camisa_funcao(){
+		linha()
 		
 		escreva("Agora você faz parte do ", time_sorteado," que responsabilidade em jovem gafanhoto eim!\n")
 		escreva("Então temos que decidir algumas coisas ", atleta)
@@ -406,15 +442,9 @@ programa// PORTUGOL SOCCER
 			escreva(" Digite novamente: ")
 			leia(numero_camisa)
 		}
-		
+	}
 
-
-
-
-
-
-		
-}
+	
 	funcao enter(){
 		cadeia enter
 		escreva("Pressione ENTER para continuar...\n")
@@ -436,5 +466,16 @@ programa// PORTUGOL SOCCER
 			u.aguarde(600)
 		}
 	}
-	
 } 
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 880; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
