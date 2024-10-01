@@ -15,13 +15,13 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
-		start() 
+		//start() 
 		
-		dados_jogador()
+		//dados_jogador()
 
-		partida_teste()
+		//partida_teste()
 		
-		time_selecionado()
+		//time_selecionado()
 
 		numero_camisa_funcao()
 		
@@ -31,14 +31,7 @@ programa// PORTUGOL SOCCER
 
 
 
-
-
-
-
-
-
-
-	funcao start(){
+funcao start(){
 		para (inteiro i = 0; i < 3; i++){
 			se(i != 1){
 			para(inteiro j=0; j <= 19; j++){
@@ -54,9 +47,11 @@ programa// PORTUGOL SOCCER
 		enter()
 		
 		u.aguarde(700)
-		limpa()
-	}
-	funcao dados_jogador(){
+}
+
+
+	
+funcao dados_jogador(){
 		linha()
 		u.aguarde(1000)
 		
@@ -164,9 +159,9 @@ programa// PORTUGOL SOCCER
 		
 		u.aguarde(3000)
 		limpa()
-	}
+}
 
-	funcao partida_teste(){
+funcao partida_teste(){
 		linha()
 		
 		escreva("Vai começar o seu jogo teste para o profissional!")
@@ -309,9 +304,9 @@ programa// PORTUGOL SOCCER
 		u.aguarde(1000)
 		enter()
 		limpa()
-	}
+}
 
-	funcao time_selecionado(){
+funcao time_selecionado(){
 		linha()
 
 		escreva("Jovem então vamos ver quais clubes impressionaram o seu futebol arte! Aguarde uns instantes para nós verificarmos")
@@ -416,9 +411,9 @@ programa// PORTUGOL SOCCER
 		u.aguarde(700)
 		enter()
 		limpa()
-	}
+}
 
-	funcao numero_camisa_funcao(){
+funcao numero_camisa_funcao(){
 		linha()
 		
 		escreva("Agora você faz parte do ", time_sorteado," que responsabilidade em jovem gafanhoto eim!\n")
@@ -442,10 +437,10 @@ programa// PORTUGOL SOCCER
 			escreva(" Digite novamente: ")
 			leia(numero_camisa)
 		}
-	}
+}
 
 	
-	funcao enter(){
+funcao enter(){
 		cadeia enter
 		escreva("Pressione ENTER para continuar...\n")
  			leia(enter)
@@ -453,19 +448,19 @@ programa// PORTUGOL SOCCER
     	 		escreva("Apenas pressione ENTER!")
      		leia(enter)
   		}
-	}
-	funcao linha(){
+}
+funcao linha(){
 		para(inteiro i = 0 ; i < 20; i++){
 		escreva("=-=")
 		}
 		escreva("\n")
-	}
-	funcao aguarde(){
+}
+funcao aguarde(){
 		para(inteiro i =0 ; i < 3 ; i++){
 			escreva(".")
 			u.aguarde(600)
 		}
-	}
+}
 } 
 
 /* $$$ Portugol Studio $$$ 
@@ -473,7 +468,7 @@ programa// PORTUGOL SOCCER
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 880; 
+ * @POSICAO-CURSOR = 201; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
