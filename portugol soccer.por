@@ -56,7 +56,7 @@ funcao dados_jogador(){
 		u.aguarde(1000)
 		
 		escreva("Para começar") aguarde()
-		escreva("\nDigite o nome do seu atleta: ")
+		escreva("Digite o nome do seu atleta: ")
 		leia(atleta)
 		n_caracteres_atleta = txt.numero_caracteres(atleta)
 		
@@ -175,7 +175,7 @@ funcao partida_teste(){
 		linha()
 		escreva("A bola está parada no centro da grande área") aguarde()
 		u.aguarde(800)
-		escreva("\nVocê deseja chutar aonde???")
+		escreva("Você deseja chutar aonde???")
 		escreva("\n[ 1 ] Chute no ângulo\n[ 2 ] Chute rasteiro\n[ 3 ] Chute colocado no canto\n")
 		linha()
 		escreva("Digite sua opção: ")
@@ -191,13 +191,13 @@ funcao partida_teste(){
 		aguarde()
 		
 		se(chute_teste1 == 1 ou chute_teste1 == 2){
-			escreva("\nBOA jovem gafonhoto!! Ótimo gol foi um gol de placa!\n")
+			escreva("BOA jovem gafonhoto!! Ótimo gol foi um gol de placa!\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 3
 		}
 		senao se(chute_teste1 == 3){
-			escreva("\nNão foi dessa fez caro amigo! Seu chute bateu na trave!\n")
+			escreva("Não foi dessa fez caro amigo! Seu chute bateu na trave!\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 1
@@ -209,7 +209,7 @@ funcao partida_teste(){
 		linha()
 		escreva("Você está no meio do campo com a bola sobe os seus pés") aguarde()
 		u.aguarde(800)
-		escreva("\nVocê deseja passar aonde???")
+		escreva("Você deseja passar aonde???")
 		escreva("\n[ 1 ] Passar para o volante a sua direita\n[ 2 ] Cruzar para o ponta esquerda\n[ 3 ] Passar a bola para o zagueiro atrás\n")
 		linha()
 		escreva("Digite sua opção: ")
@@ -225,19 +225,19 @@ funcao partida_teste(){
 		aguarde()
 
 		se(chute_teste2 == 1){
-			escreva("\nBoa escolha meu atleta! Porém o volante infelizmente estava marcado, não foi desta vez..\n")
+			escreva("Boa escolha meu atleta! Porém o volante infelizmente estava marcado, não foi desta vez..\n")
 			u.aguarde(1000)
 			enter()
 			pontuacao_teste += 2
 		}
 		senao se(chute_teste2 == 2){
-			escreva("\nEscolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponta consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"!\n")
+			escreva("Escolha arriscada meu jogador! Ousadia sempre nos pés, o seu ponta consegue pegar a bola e marca um gol de placa! Parabéns ", atleta,"!\n")
 			u.aguarde(1000)
 			enter()
 			pontuacao_teste += 3
 		}
 		senao se(chute_teste2 == 3){
-			escreva("\nSeu técnico não gostou nada disso jovem gafanhoto... Você passa para o zagueiro e o seu time perde a chance de contra-atacar.\n")
+			escreva("Seu técnico não gostou nada disso jovem gafanhoto... Você passa para o zagueiro e o seu time perde a chance de contra-atacar.\n")
 			u.aguarde(1000)
 			enter()
 			pontuacao_teste += 1
@@ -265,19 +265,19 @@ funcao partida_teste(){
 		aguarde()
 
 		se(chute_teste3 == 1){
-			escreva("\nPerfeita escolha ", atleta,"! O seu técnico gostou muito da atitude como o Neymar dizia \"Ousadia e Alegria!\"\n")
+			escreva("Perfeita escolha ", atleta,"! O seu técnico gostou muito da atitude como o Neymar dizia \"Ousadia e Alegria!\"\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 3
 		}
 		senao se(chute_teste3 == 2){
-			escreva("\nQue carretilha linda rapaz!! Você dribla o zagueiro, fica cara-cara com o gol e faz um golaço! Parábens ", atleta, "\n")
+			escreva("Que carretilha linda rapaz!! Você dribla o zagueiro, fica cara-cara com o gol e faz um golaço! Parábens ", atleta, "\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 3
 		}
 		senao se(chute_teste3 == 3){
-			escreva("\nFoi por pouco jovem! Você corta para seu pé ", pe, " com sucesso e chuta na trave.. Que pecado!\n")
+			escreva("Foi por pouco jovem! Você corta para seu pé ", pe, " com sucesso e chuta na trave.. Que pecado!\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 1
@@ -289,7 +289,6 @@ funcao partida_teste(){
 		escreva("Os seus testes finalizaram jovem gafanhoto! Vamos descobrir o seus resultados")
 		aguarde()
 
-		escreva("\n")
 		se (pontuacao_teste == 9){
 			escreva("Excepcional ", atleta, "! Parábens seus resultados impressionaram muito os olheiros jovem gafanhoto!")
 		}
@@ -313,7 +312,6 @@ funcao time_selecionado(){
 		aguarde()
 		u.aguarde(1000)
 
-		escreva("\n")
 		se (nacionalidade == 1){
 			time_sorteado = time_sorteado_brasil[u.sorteia(1, 3) - 1]
 			para( inteiro i = 0; i <= 3; i++){
@@ -407,7 +405,7 @@ funcao time_selecionado(){
 		linha()
 		escreva("Carregando")
 		aguarde()
-		escreva("\nO ", time_sorteado, " gostou muito do seu futebol e dos seus talentos com os pés e quer te contratar!\n")
+		escreva("O ", time_sorteado, " gostou muito do seu futebol e dos seus talentos com os pés e quer te contratar!\n")
 		u.aguarde(700)
 		enter()
 		limpa()
@@ -419,7 +417,6 @@ funcao numero_camisa_funcao(){
 		escreva("Agora você faz parte do ", time_sorteado," que responsabilidade em jovem gafanhoto eim!\n")
 		escreva("Então temos que decidir algumas coisas ", atleta)
 		aguarde()
-		escreva("\n")
 		enter()
 		limpa()
 		escreva("É muito importante estarmos trajados como diria Romário. Então precisamos definir seu visual para você ficar no estilo!\n")
@@ -460,7 +457,8 @@ funcao aguarde(){
 			escreva(".")
 			u.aguarde(600)
 		}
-}
+		escreva("\n")
+	}
 } 
 
 /* $$$ Portugol Studio $$$ 
