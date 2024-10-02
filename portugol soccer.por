@@ -3,6 +3,7 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Util --> u
 	inclua biblioteca Texto --> txt
 	inclua biblioteca Teclado --> t
+	inclua biblioteca Calendario --> c
 	
 	cadeia atleta = " ", sexo = " ", pais = " ", pe = " ", time_sorteado = " "
 	inteiro n_caracteres_atleta, nacionalidade = 0, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
@@ -23,8 +24,9 @@ programa// PORTUGOL SOCCER
 		
 		//time_selecionado()
 
-		numero_camisa_funcao()
-		
+		//numero_camisa_funcao()
+
+		torneio_pretemporada()
 }
 
 
@@ -434,6 +436,66 @@ funcao numero_camisa_funcao(){
 			escreva(" Digite novamente: ")
 			leia(numero_camisa)
 		}
+		escreva("\nNúmero da camisa selecionado com sucesso! Agora vai começar o torneio de pré-temporada")
+		aguarde()
+		
+		enter()
+		limpa()
+}
+funcao torneio_pretemporada(){
+inteiro situacao_1, probabilidade_situacao_1
+		linha()
+		escreva("|           Portugol World Cup           |\n\n")
+		escreva("Bem-vindo ao nosso torneio de pré-temporada")aguarde()
+		u.aguarde(2000)
+
+		limpa()
+		linha()
+
+		escreva("O ", time_sorteado, " jogará contra o Galatasaray!\n")
+		escreva("Prepare-se será a sua estreia no profissional jovem ganhafato!!\n")
+		escreva("Você está pronto para essa longa jornada?\n\n")
+
+		enter()
+		limpa()
+		linha()
+
+		escreva(time_sorteado, " x GALATASARAY. ", c.hora_atual(falso), ":00 HORAS - ", c.dia_mes_atual(),"/", c.mes_atual(),"/",c.ano_atual(),"\n\n")
+		enter()
+		limpa()
+
+		//escreva("O seu jogo vai começar em")
+		//temporarizador()
+
+		escreva("Começou o Jogo!! Rola a bola!\n")
+		u.aguarde(1500)
+
+		limpa()
+		escreva(time_sorteado, " x GALATASARAY. ", c.hora_atual(falso), ":00 HORAS - ", c.dia_mes_atual(),"/", c.mes_atual(),"/",c.ano_atual(),"\n")
+		linha()
+
+		escreva("\n========== SITUAÇÃO 1 ==========\n")
+		escreva("Você está correndo com a bola no corredor")aguarde()
+		u.aguarde(2000)
+		limpa()
+		
+		escreva(time_sorteado, " x GALATASARAY. ", c.hora_atual(falso), ":00 HORAS - ", c.dia_mes_atual(),"/", c.mes_atual(),"/",c.ano_atual(),"\n")
+		linha()
+		escreva("\n========== SITUAÇÃO 1 ==========\n")
+		escreva("Você chegou na linha do escanteio. Oque você deseja fazer?")
+		escreva("\n[ 1 ] Cruzar para a grande área\n [ 2 ] Driblar o advérsário\n [ 3 ] Cortar para o meio e chutar no gol\n")
+		linha()
+		escreva("Selecione sua opção: ")
+		leia(situacao_1)
+
+		probabilidade_situacao_1 = u.sorteia(1, 2)
+		
+		se(situacao_1 == 1){
+			se (probabilidade_situacao_1 == 1){
+				
+			}
+		}
+		
 }
 
 	
@@ -459,6 +521,9 @@ funcao aguarde(){
 		}
 		escreva("\n")
 	}
+//funcao inteiro temporarizador()
+		
+	
 } 
 
 /* $$$ Portugol Studio $$$ 
@@ -466,7 +531,7 @@ funcao aguarde(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 201; 
+ * @POSICAO-CURSOR = 13371; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
