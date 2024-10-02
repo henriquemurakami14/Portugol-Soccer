@@ -16,15 +16,15 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
-		//start() 
+		start() 
 		
-		//dados_jogador()
+		dados_jogador()
 
-		//partida_teste()
+		partida_teste()
 		
-		//time_selecionado()
+		time_selecionado()
 
-		//numero_camisa_funcao()
+		numero_camisa_funcao()
 
 		torneio_pretemporada()
 }
@@ -443,7 +443,7 @@ funcao numero_camisa_funcao(){
 		limpa()
 }
 funcao torneio_pretemporada(){
-inteiro situacao_1, probabilidade_situacao_1
+inteiro situacao_1, probabilidade_situacao_1, placar_time = 0, placar_adversario = 0 
 		linha()
 		escreva("|           Portugol World Cup           |\n\n")
 		escreva("Bem-vindo ao nosso torneio de pré-temporada")aguarde()
@@ -483,19 +483,57 @@ inteiro situacao_1, probabilidade_situacao_1
 		linha()
 		escreva("\n========== SITUAÇÃO 1 ==========\n")
 		escreva("Você chegou na linha do escanteio. Oque você deseja fazer?")
-		escreva("\n[ 1 ] Cruzar para a grande área\n [ 2 ] Driblar o advérsário\n [ 3 ] Cortar para o meio e chutar no gol\n")
+		escreva("\n[ 1 ] Cruzar para a grande área\n[ 2 ] Driblar o advérsário\n[ 3 ] Cortar para o meio e chutar no gol\n")
 		linha()
 		escreva("Selecione sua opção: ")
 		leia(situacao_1)
 
+		enquanto(situacao_1 > 3 ou situacao_1 < 1){
+			escreva("Valor Inválido! Digite sua opção novamente: ")
+			leia(situacao_1)
+		}
+		
 		probabilidade_situacao_1 = u.sorteia(1, 2)
+
+		u.aguarde(1500)
+		limpa()
+		aguarde()
+		limpa()
+		u.aguarde(1500)
 		
 		se(situacao_1 == 1){
 			se (probabilidade_situacao_1 == 1){
-				
+				escreva("Você cruzou para área e seu atacante matador faz o gol de cabeça!! Golaço ", atleta, "!\n")
+				placar_time += 1
+			}senao{
+				escreva("Você cruza muito forte e a bola vai para fora. Não foi desta vez ", atleta, "!\n")
 			}
+			enter()
+			limpa()
 		}
-		
+		se(situacao_1 == 2){
+			se (probabilidade_situacao_1 == 1){
+				escreva("Você dribla o adversário com elástico, e chute de colocada no ângulo! Que jogada ", atleta, "!\n")
+				placar_time += 1
+			}senao{
+				escreva("Você tentou dar uma carretilha mas ela bate na cabeça do adversário! Não foi desta vez ", atleta, "!\n")
+			}
+			enter()
+			limpa()
+		}
+		se(situacao_1 == 3){
+			se (probabilidade_situacao_1 == 1){
+				escreva("Você corta para o meio e de trivela faz um golaço!! Gol de placa!! Parabéns ", atleta, "!\n")
+				placar_time += 1
+			}senao{
+				escreva("Você corta para o meio mas o zagueiro intercepta e você perde a bola. Não desista ", atleta, "!\n")
+			}
+			enter()
+			limpa()
+		}
+
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		linha()
 }
 
 	
@@ -531,7 +569,7 @@ funcao aguarde(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 13371; 
+ * @POSICAO-CURSOR = 14563; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
