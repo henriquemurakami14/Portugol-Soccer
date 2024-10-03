@@ -49,6 +49,7 @@ funcao start(){
 		enter()
 		
 		u.aguarde(700)
+		limpa()
 }
 
 
@@ -252,7 +253,7 @@ funcao partida_teste(){
 		escreva("Você está chegando na grande área com a bola aos seus pés, há um zagueiro na sua frente") aguarde()
 		u.aguarde(800)
 		escreva("\nOque você deseja fazer??")
-		escreva("\n[ 1 ] Fazer um drible mágico deixando o zagueiro no chão\n[ 2 ] Dar uma carretilha\n[ 3 ] Cortar para o seu pé ", pe, " e chutar\n")
+		escreva("\n[ 1 ] Fazer um drible mágico\n[ 2 ] Dar uma carretilha\n[ 3 ] Cortar para o seu pé ", pe, " e chutar\n")
 		linha()
 		escreva("Digite sua opção: ")
 		leia(chute_teste3)
@@ -267,7 +268,7 @@ funcao partida_teste(){
 		aguarde()
 
 		se(chute_teste3 == 1){
-			escreva("Perfeita escolha ", atleta,"! O seu técnico gostou muito da atitude como o Neymar dizia \"Ousadia e Alegria!\"\n")
+			escreva("Perfeita escolha ", atleta,". Você dribla o zagueiro deixando ele no chão! O seu técnico gostou muito da atitude, como o Neymar dizia \"Ousadia e Alegria!\"\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 3
@@ -443,7 +444,7 @@ funcao numero_camisa_funcao(){
 		limpa()
 }
 funcao torneio_pretemporada(){
-inteiro situacao_1, probabilidade_situacao_1, placar_time = 0, placar_adversario = 0 
+inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversario = 0 
 		linha()
 		escreva("|           Portugol World Cup           |\n\n")
 		escreva("Bem-vindo ao nosso torneio de pré-temporada")aguarde()
@@ -464,8 +465,8 @@ inteiro situacao_1, probabilidade_situacao_1, placar_time = 0, placar_adversario
 		enter()
 		limpa()
 
-		//escreva("O seu jogo vai começar em")
-		//temporarizador()
+		escreva("O seu jogo vai começar em")aguarde()
+		temporarizador(5)
 
 		escreva("Começou o Jogo!! Rola a bola!\n")
 		u.aguarde(1500)
@@ -486,14 +487,14 @@ inteiro situacao_1, probabilidade_situacao_1, placar_time = 0, placar_adversario
 		escreva("\n[ 1 ] Cruzar para a grande área\n[ 2 ] Driblar o advérsário\n[ 3 ] Cortar para o meio e chutar no gol\n")
 		linha()
 		escreva("Selecione sua opção: ")
-		leia(situacao_1)
+		leia(opcao_selecionada)
 
-		enquanto(situacao_1 > 3 ou situacao_1 < 1){
+		enquanto(opcao_selecionada > 3 ou opcao_selecionada < 1){
 			escreva("Valor Inválido! Digite sua opção novamente: ")
-			leia(situacao_1)
+			leia(opcao_selecionada)
 		}
 		
-		probabilidade_situacao_1 = u.sorteia(1, 2)
+		probabilidade_acerto = u.sorteia(1, 2)
 
 		u.aguarde(1500)
 		limpa()
@@ -501,39 +502,93 @@ inteiro situacao_1, probabilidade_situacao_1, placar_time = 0, placar_adversario
 		limpa()
 		u.aguarde(1500)
 		
-		se(situacao_1 == 1){
-			se (probabilidade_situacao_1 == 1){
+		se(opcao_selecionada == 1){
+			se (probabilidade_acerto == 1){
 				escreva("Você cruzou para área e seu atacante matador faz o gol de cabeça!! Golaço ", atleta, "!\n")
 				placar_time += 1
 			}senao{
 				escreva("Você cruza muito forte e a bola vai para fora. Não foi desta vez ", atleta, "!\n")
 			}
-			enter()
-			limpa()
 		}
-		se(situacao_1 == 2){
-			se (probabilidade_situacao_1 == 1){
+		senao se(opcao_selecionada == 2){
+			se (probabilidade_acerto == 1){
 				escreva("Você dribla o adversário com elástico, e chute de colocada no ângulo! Que jogada ", atleta, "!\n")
 				placar_time += 1
 			}senao{
 				escreva("Você tentou dar uma carretilha mas ela bate na cabeça do adversário! Não foi desta vez ", atleta, "!\n")
 			}
-			enter()
-			limpa()
 		}
-		se(situacao_1 == 3){
-			se (probabilidade_situacao_1 == 1){
+		senao se(opcao_selecionada == 3){
+			se (probabilidade_acerto == 1){
 				escreva("Você corta para o meio e de trivela faz um golaço!! Gol de placa!! Parabéns ", atleta, "!\n")
 				placar_time += 1
 			}senao{
 				escreva("Você corta para o meio mas o zagueiro intercepta e você perde a bola. Não desista ", atleta, "!\n")
 			}
-			enter()
-			limpa()
 		}
+		enter()
+		limpa()
+		
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		linha()
+		escreva("\n========== SITUAÇÃO 2 ==========\n")
+		escreva("Há um atacante habilidoso em sua frente")aguarde()
+		u.aguarde(2000)
+		limpa()
 
 		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
+		escreva("\n========== SITUAÇÃO 2 ==========\n")
+		escreva("Ele está em sua frente dentro da grande área ", atleta,". Oque você deseja fazer?")
+		escreva("\n[ 1 ] Tentar roubar a bola\n[ 2 ] Dar um carrinho\n[ 3 ] Esperar e dar o bote\n")
+		linha()
+		escreva("Selecione sua opção: ")
+		leia(opcao_selecionada)
+	
+		enquanto(opcao_selecionada > 3 ou opcao_selecionada < 1){
+			escreva("Valor Inválido! Digite sua opção novamente: ")
+			leia(opcao_selecionada)
+		}
+		
+		probabilidade_acerto = u.sorteia(1, 3)
+
+		u.aguarde(1500)
+		limpa()
+		aguarde()
+		limpa()
+		u.aguarde(1500)
+		
+		se(opcao_selecionada == 1){
+			se (probabilidade_acerto > 1){
+				escreva("Você tenta roubar a bola, e desarma com sucesso construindo um contra-ataque. Parábens ", atleta,"!\n")
+			}senao{
+				escreva("Você tenta roubar a bola, mas você erra o tempo do desarme e o adversário marca um golaço. Não foi desta vez ", atleta, "!\n")
+				placar_adversario += 1
+			}
+		}
+		senao se(opcao_selecionada == 2){
+			se (probabilidade_acerto < 2){
+				escreva("Você dá um carrinho, e é penâlti pro adversário. E eles convertem o penâlti e fazem o gol! Você tomou um cartão amarelo ", atleta, "! Seu técnico não gostou disso.\n")
+				placar_time += 1
+			}senao{
+				escreva("Você da um carrinho estilo Sergio Ramos, e desarma o atacante. Que defesa raçuda ", atleta, "!\n")
+			}
+		}
+		senao se(opcao_selecionada == 3){
+			se (probabilidade_acerto > 1){
+				escreva("Você espera o melhor momento para o bote. E tira a bola do atacante com sucesso! Parabéns ", atleta, "!\n")
+			}senao{
+				escreva("Você espera dar o bote, mas demorou. O atacante corta para direita e marca um gol na gaveta! Não foi desta vez ", atleta, "!\n")
+				placar_adversario += 1
+			}
+		}
+		enter()
+		limpa()
+
+
+
+
+
 }
 
 	
@@ -559,7 +614,15 @@ funcao aguarde(){
 		}
 		escreva("\n")
 	}
-//funcao inteiro temporarizador()
+funcao temporarizador(inteiro tempo){
+		u.aguarde(1500)
+		para(inteiro i = tempo ; i != -1; i--){
+			limpa()
+			escreva(i)
+			u.aguarde(1000)
+		}
+		limpa()
+}
 		
 	
 } 
@@ -569,7 +632,7 @@ funcao aguarde(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 14563; 
+ * @POSICAO-CURSOR = 1373; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
