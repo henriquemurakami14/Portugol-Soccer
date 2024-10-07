@@ -16,17 +16,20 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
-		start() 
+		//start() 
 		
-		dados_jogador()
+		//dados_jogador()
 
-		partida_teste()
+		//partida_teste()
 		
-		time_selecionado()
+		//time_selecionado()
 
-		numero_camisa_funcao()
+		//numero_camisa_funcao()
 
 		torneio_pretemporada()
+
+		
+		
 }
 
 
@@ -529,14 +532,14 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		enter()
 		limpa()
 		
-		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 2 ==========\n")
 		escreva("Há um atacante habilidoso em sua frente")aguarde()
 		u.aguarde(2000)
 		limpa()
 
-		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 2 ==========\n")
 		escreva("Ele está em sua frente dentro da grande área ", atleta,". Oque você deseja fazer?")
@@ -569,7 +572,7 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		senao se(opcao_selecionada == 2){
 			se (probabilidade_acerto < 2){
 				escreva("Você dá um carrinho, e é penâlti pro adversário. E eles convertem o penâlti e fazem o gol! Você tomou um cartão amarelo ", atleta, "! Seu técnico não gostou disso.\n")
-				placar_time += 1
+				placar_adversario += 1
 			}senao{
 				escreva("Você da um carrinho estilo Sergio Ramos, e desarma o atacante. Que defesa raçuda ", atleta, "!\n")
 			}
@@ -585,10 +588,60 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		enter()
 		limpa()
 
+//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		linha()
+		escreva("\n========== SITUAÇÃO 3 ==========\n")		
+		escreva("Você está dentro da área")aguarde()
+		u.aguarde(2000)
+		limpa()
+		
+//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		linha()
+		escreva("\n========== SITUAÇÃO 3 ==========\n")
+		escreva("E você sofre um pênalti!! Os jogadores concordam que você deve bater o pênalti!")aguarde()
+		escreva("\n[ 1 ] Canto esquerdo\n[ 2 ] Meio\n[ 3 ] Canto Direito\n")
+		escreva("Selecione o canto aonde seu jogador irá chutar: ")
+		leia(opcao_selecionada)
+	
+		enquanto(opcao_selecionada > 3 ou opcao_selecionada < 1){
+			escreva("Valor Inválido! Digite sua opção novamente: ")
+			leia(opcao_selecionada)
+		}
+		
+		probabilidade_acerto = u.sorteia(1, 2)
 
-
-
-
+		u.aguarde(1500)
+		limpa()
+		aguarde()
+		limpa()
+		u.aguarde(1500)
+		
+		se(opcao_selecionada == 1){
+			se (probabilidade_acerto == 1){
+				escreva("Você tenta roubar a bola, e desarma com sucesso construindo um contra-ataque. Parábens ", atleta,"!\n")
+			}senao{
+				escreva("Você tenta roubar a bola, mas você erra o tempo do desarme e o adversário marca um golaço. Não foi desta vez ", atleta, "!\n")
+				placar_adversario += 1
+			}
+		}
+		senao se(opcao_selecionada == 2){
+			se (probabilidade_acerto == 1){
+				escreva("Você dá um carrinho, e é penâlti pro adversário. E eles convertem o penâlti e fazem o gol! Você tomou um cartão amarelo ", atleta, "! Seu técnico não gostou disso.\n")
+				placar_adversario += 1
+			}senao{
+				escreva("Você da um carrinho estilo Sergio Ramos, e desarma o atacante. Que defesa raçuda ", atleta, "!\n")
+			}
+		}
+		senao se(opcao_selecionada == 3){
+			se (probabilidade_acerto == 1){
+				escreva("Você espera o melhor momento para o bote. E tira a bola do atacante com sucesso! Parabéns ", atleta, "!\n")
+			}senao{
+				escreva("Você espera dar o bote, mas demorou. O atacante corta para direita e marca um gol na gaveta! Não foi desta vez ", atleta, "!\n")
+				placar_adversario += 1
+			}
+		}
+		enter()
+		limpa()
 }
 
 	
@@ -623,7 +676,28 @@ funcao temporarizador(inteiro tempo){
 		}
 		limpa()
 }
+funcao penalti(){
+		para(inteiro i=0; i < 16; i++){
+			se ( i == 0){
+				para(inteiro j=0; j < 56; j++){
+				escreva("_ ")
+			}
+			}senao{
+				para(inteiro j=0; j < 56; j++){
+				se ( j == 0 ou j == 55){
+				escreva("| ")
+				}senao{
+					escreva("  ")
+				}
+			}
+			}
+			escreva("\n")
+	}
+
 		
+
+		
+}
 	
 } 
 
@@ -632,7 +706,7 @@ funcao temporarizador(inteiro tempo){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1373; 
+ * @POSICAO-CURSOR = 18541; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
