@@ -618,28 +618,29 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		
 		se(opcao_selecionada == 1){
 			se (probabilidade_acerto == 1){
-				escreva("Você tenta roubar a bola, e desarma com sucesso construindo um contra-ataque. Parábens ", atleta,"!\n")
+				escreva("Você chuta no canto esquerdo. Mas a bola bate na trave! Não foi desta vez ", atleta, ". Que azar!")
 			}senao{
-				escreva("Você tenta roubar a bola, mas você erra o tempo do desarme e o adversário marca um golaço. Não foi desta vez ", atleta, "!\n")
-				placar_adversario += 1
+				escreva("Você chuta na esquerda alto no canto da coruja! E faz um golaço!! Aí sim ", atleta, "! Parabéns!")
+				placar_time += 1
 			}
 		}
 		senao se(opcao_selecionada == 2){
 			se (probabilidade_acerto == 1){
-				escreva("Você dá um carrinho, e é penâlti pro adversário. E eles convertem o penâlti e fazem o gol! Você tomou um cartão amarelo ", atleta, "! Seu técnico não gostou disso.\n")
-				placar_adversario += 1
+				escreva("Você chuta no meio, mas o goleiro agarra a bola! Não foi desta vez!")
 			}senao{
-				escreva("Você da um carrinho estilo Sergio Ramos, e desarma o atacante. Que defesa raçuda ", atleta, "!\n")
+				escreva("Você dá uma cavadinha sinistra, e faz um golaço ", atleta, "! Parabéns jogador!")
+				placar_time += 1
 			}
 		}
 		senao se(opcao_selecionada == 3){
 			se (probabilidade_acerto == 1){
-				escreva("Você espera o melhor momento para o bote. E tira a bola do atacante com sucesso! Parabéns ", atleta, "!\n")
+				escreva("Você chuta na direita rasteiro, e o goleiro como um gato pega a bola! Que azar ", atleta, "!")
 			}senao{
-				escreva("Você espera dar o bote, mas demorou. O atacante corta para direita e marca um gol na gaveta! Não foi desta vez ", atleta, "!\n")
-				placar_adversario += 1
+				escreva("Você chuta na direita tirando do goleiro, e faz um golaço! Parabéns ", atleta)
+				placar_time += 1
 			}
 		}
+		escreva("\n")
 		enter()
 		limpa()
 }
@@ -706,7 +707,7 @@ funcao penalti(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 18541; 
+ * @POSICAO-CURSOR = 19396; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
