@@ -4,9 +4,10 @@ programa// PORTUGOL SOCCER
 	inclua biblioteca Texto --> txt
 	inclua biblioteca Teclado --> t
 	inclua biblioteca Calendario --> c
+	inclua biblioteca Tipos --> ti
 	
 	cadeia atleta = " ", sexo = " ", pais = " ", pe = " ", time_sorteado = " "
-	inteiro n_caracteres_atleta, nacionalidade = 0, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
+	inteiro n_caracteres_atleta, nacionalidade = 1, chute_teste1, chute_teste2, chute_teste3, pe_dominante, pontuacao_teste = 0, contador = 0, numero_camisa
 	cadeia time_sorteado_brasil[3] = {"PALMEIRAS", "FLAMENGO", "CORINTHIANS"}
 	cadeia time_sorteado_argentina[3] = {"BOCA JUNIORS", "RIVER PLATE", "LANUS"}
 	cadeia time_sorteado_inglaterra[3] = {"CHELSEA", "ARSENAL", "MANCHESTER UNITED"}
@@ -16,15 +17,15 @@ programa// PORTUGOL SOCCER
 	
 	funcao inicio()
 {
-		//start() 
+		start() 
 		
-		//dados_jogador()
+		dados_jogador()
 
-		//partida_teste()
+		partida_teste()
 		
-		//time_selecionado()
+		time_selecionado()
 
-		//numero_camisa_funcao()
+		numero_camisa_funcao()
 
 		torneio_pretemporada()
 
@@ -447,7 +448,9 @@ funcao numero_camisa_funcao(){
 		limpa()
 }
 funcao torneio_pretemporada(){
-inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversario = 0 
+inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversario = 0
+real nota_partida = 0.0, media_partida
+cadeia media
 		linha()
 		escreva("|           Portugol World Cup           |\n\n")
 		escreva("Bem-vindo ao nosso torneio de pré-temporada")aguarde()
@@ -509,37 +512,43 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 			se (probabilidade_acerto == 1){
 				escreva("Você cruzou para área e seu atacante matador faz o gol de cabeça!! Golaço ", atleta, "!\n")
 				placar_time += 1
+				nota_partida += 10.0
 			}senao{
 				escreva("Você cruza muito forte e a bola vai para fora. Não foi desta vez ", atleta, "!\n")
+				nota_partida += 4.0
 			}
 		}
 		senao se(opcao_selecionada == 2){
 			se (probabilidade_acerto == 1){
 				escreva("Você dribla o adversário com elástico, e chute de colocada no ângulo! Que jogada ", atleta, "!\n")
 				placar_time += 1
+				nota_partida += 10.0
 			}senao{
 				escreva("Você tentou dar uma carretilha mas ela bate na cabeça do adversário! Não foi desta vez ", atleta, "!\n")
+				nota_partida += 4.5
 			}
 		}
 		senao se(opcao_selecionada == 3){
 			se (probabilidade_acerto == 1){
 				escreva("Você corta para o meio e de trivela faz um golaço!! Gol de placa!! Parabéns ", atleta, "!\n")
 				placar_time += 1
+				nota_partida += 10.0
 			}senao{
 				escreva("Você corta para o meio mas o zagueiro intercepta e você perde a bola. Não desista ", atleta, "!\n")
+				nota_partida += 3.0
 			}
 		}
 		enter()
 		limpa()
 		
-//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 2 ==========\n")
 		escreva("Há um atacante habilidoso em sua frente")aguarde()
 		u.aguarde(2000)
 		limpa()
 
-//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 2 ==========\n")
 		escreva("Ele está em sua frente dentro da grande área ", atleta,". Oque você deseja fazer?")
@@ -564,42 +573,49 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		se(opcao_selecionada == 1){
 			se (probabilidade_acerto > 1){
 				escreva("Você tenta roubar a bola, e desarma com sucesso construindo um contra-ataque. Parábens ", atleta,"!\n")
+				nota_partida += 9.0
 			}senao{
 				escreva("Você tenta roubar a bola, mas você erra o tempo do desarme e o adversário marca um golaço. Não foi desta vez ", atleta, "!\n")
 				placar_adversario += 1
+				nota_partida += 0.0
 			}
 		}
 		senao se(opcao_selecionada == 2){
-			se (probabilidade_acerto < 2){
+			se (probabilidade_acerto > 2){
 				escreva("Você dá um carrinho, e é penâlti pro adversário. E eles convertem o penâlti e fazem o gol! Você tomou um cartão amarelo ", atleta, "! Seu técnico não gostou disso.\n")
 				placar_adversario += 1
+				nota_partida += -1.0
 			}senao{
 				escreva("Você da um carrinho estilo Sergio Ramos, e desarma o atacante. Que defesa raçuda ", atleta, "!\n")
+				nota_partida += 8.0
 			}
 		}
 		senao se(opcao_selecionada == 3){
 			se (probabilidade_acerto > 1){
 				escreva("Você espera o melhor momento para o bote. E tira a bola do atacante com sucesso! Parabéns ", atleta, "!\n")
+				nota_partida += 8.0
 			}senao{
 				escreva("Você espera dar o bote, mas demorou. O atacante corta para direita e marca um gol na gaveta! Não foi desta vez ", atleta, "!\n")
 				placar_adversario += 1
+				nota_partida += 1.0
 			}
 		}
 		enter()
 		limpa()
 
-//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 3 ==========\n")		
 		escreva("Você está dentro da área")aguarde()
 		u.aguarde(2000)
 		limpa()
 		
-//		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
 		linha()
 		escreva("\n========== SITUAÇÃO 3 ==========\n")
 		escreva("E você sofre um pênalti!! Os jogadores concordam que você deve bater o pênalti!")aguarde()
 		escreva("\n[ 1 ] Canto esquerdo\n[ 2 ] Meio\n[ 3 ] Canto Direito\n")
+		linha()
 		escreva("Selecione o canto aonde seu jogador irá chutar: ")
 		leia(opcao_selecionada)
 	
@@ -619,30 +635,90 @@ inteiro opcao_selecionada, probabilidade_acerto, placar_time = 0, placar_adversa
 		se(opcao_selecionada == 1){
 			se (probabilidade_acerto == 1){
 				escreva("Você chuta no canto esquerdo. Mas a bola bate na trave! Não foi desta vez ", atleta, ". Que azar!")
+				nota_partida += 2.0
 			}senao{
 				escreva("Você chuta na esquerda alto no canto da coruja! E faz um golaço!! Aí sim ", atleta, "! Parabéns!")
 				placar_time += 1
+				nota_partida += 10.0
 			}
 		}
 		senao se(opcao_selecionada == 2){
 			se (probabilidade_acerto == 1){
 				escreva("Você chuta no meio, mas o goleiro agarra a bola! Não foi desta vez!")
+				nota_partida += 1.0
 			}senao{
 				escreva("Você dá uma cavadinha sinistra, e faz um golaço ", atleta, "! Parabéns jogador!")
 				placar_time += 1
+				nota_partida += 10.0
 			}
 		}
 		senao se(opcao_selecionada == 3){
 			se (probabilidade_acerto == 1){
 				escreva("Você chuta na direita rasteiro, e o goleiro como um gato pega a bola! Que azar ", atleta, "!")
+				nota_partida += 2.0
 			}senao{
 				escreva("Você chuta na direita tirando do goleiro, e faz um golaço! Parabéns ", atleta)
 				placar_time += 1
+				nota_partida += 9.0
 			}
 		}
 		escreva("\n")
 		enter()
 		limpa()
+
+		media_partida = nota_partida / 3
+		media = ti.real_para_cadeia(media_partida)
+		media = txt.extrair_subtexto(media, 0, 3)
+
+		aguarde()
+		u.aguarde(2000)
+		limpa()
+		
+		escreva(txt.extrair_subtexto(time_sorteado, 0, 3)," ", placar_time, " X GAL ", placar_adversario,"\n")
+		linha()
+
+		se(placar_time > placar_adversario){
+			escreva("Vitória para o time do ", time_sorteado,"! Parábens pela vitória ",atleta)
+		}
+		senao se(placar_time < placar_adversario){
+			escreva("Triste derrota ", atleta,". Vitória para o time do GALATASSARAY")
+		}
+		senao{
+			escreva("Empate sofrido entre o ", time_sorteado," e o time russo GALATASSARAY")
+		}
+
+
+		escreva("!\nFim de jogo. Sua desempenho desta partida foi de ", media,"\n")
+
+		u.aguarde(1500)
+		
+		se(media_partida > 8.0 e media_partida < 10.0){
+			escreva("Expecional ", atleta, "! Parabéns pelo seu rendimento.")
+		}
+		senao se(media_partida > 6.0 e media_partida < 8.0){
+			escreva("Razoavel meu jogador! Você foi uma peça fundamental para o time!")
+		}
+		senao se(media_partida > 1.0 e media_partida < 6.0){
+			escreva("Seu desempenho foi ok! Você deve melhorar suas habiladades ", atleta)
+		}
+		senao se(media_partida < 1.0){
+			escreva("Péssimo jogador o técnico Jeff não gostou nada da sua partida!")
+		}
+		senao se(media_partida == 10.0){
+			escreva("Parábens ", atleta, "! Você supreendeu a comissão técnica. Continue assim que teremos o uma lenda do ", time_sorteado,"!")
+		}
+		escreva("\n")
+		enter()
+		limpa()
+	
+		aguarde()
+		u.aguarde(1000)
+		limpa()
+		
+		linha()
+		escreva("Este foi o começo da sua jornado do seu modo carreira do Portugol Soccer!\n")
+		enter()
+		
 }
 
 	
@@ -707,7 +783,7 @@ funcao penalti(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 19396; 
+ * @POSICAO-CURSOR = 1050; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
