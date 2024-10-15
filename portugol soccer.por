@@ -83,11 +83,17 @@ funcao dados_jogador(){
 		escreva("Seu sexo [M ou F]: ")
 		leia(sexo)
 		sexo = txt.caixa_alta(sexo)
-		
-		enquanto ( (sexo != "M" e sexo != "MASCULINO") e (sexo != "F" e sexo != "FEMININO")){
-			escreva("Caracter Inválido! Digite Novamente! \nSeu sexo: ")
+	
+		enquanto ( (sexo != "M" e sexo != "MASCULINO" e sexo != "HOMEM") e (sexo != "F" e sexo != "FEMININO" e sexo != "MULHER")){
+			escreva("Sexo Inválido! Digite Novamente! \nSeu sexo: ")
 			leia(sexo)
 			sexo = txt.caixa_alta(sexo)
+		}
+
+		se(sexo == "M" ou sexo == "HOMEM"){
+			sexo = "MASCULINO"
+		}senao se(sexo == "F" ou sexo == "MULHER"){
+			sexo = "FEMININO"
 		}
 		escreva("Sexo definido com sucesso!")
 		
@@ -111,12 +117,12 @@ funcao dados_jogador(){
 
 		se ( pe_dominante == 1){
 			pe = "direito"
-			escreva("Pé dominante selecionado com sucesso! O mesmo pé dominante do que o de Neymar Jr, a mágia brilha no seus pés!\n")
+			escreva("Pé dominante selecionado com sucesso! O mesmo pé dominante do que o do Neymar Jr, a mágia brilha no seus pés jovem!\n")
 			u.aguarde(600)
 		}
 		se ( pe_dominante == 2){
 			pe = "esquerdo"
-			escreva("Pé dominante selecionado com sucesso! O mesmo pé dominante do que o Lionel Messi, que honra jovem!\n")
+			escreva("Pé dominante selecionado com sucesso! O mesmo pé dominante do que o de Lionel Messi, que honra jovem gafanhoto!\n")
 			u.aguarde(600)
 		}
 
@@ -144,15 +150,15 @@ funcao dados_jogador(){
     	 	pare
       caso 2:
       pais = "ARGENTINA"
-      	escreva("Argentina uma ótima escolha jovem amigo.")
+      	escreva("Argentina é uma ótima escolha jovem.")
       	pare
       caso 3:
       pais = "INGLATERRA"
-      	escreva("Inglaterra a terra do melhor futebol do mundo atualmente! Escolha clássica jovem.")
+      	escreva("Inglaterra a terra do melhor futebol do mundo! Escolha clássica jovem.")
       	pare
       caso 4:
       pais = "FRANCA"
-      	escreva("França o país do croissant! Boa escolha meu amigo.")
+      	escreva("França o país do craque Zinédine Zidane! Boa escolha meu amigo.")
       	pare
       caso 5:
       pais = "ALEMANHA"
@@ -171,8 +177,7 @@ funcao dados_jogador(){
 funcao partida_teste(){
 		linha()
 		
-		escreva("Vai começar o seu jogo teste para o profissional!")
-		escreva(" Os testes vão envolver chute, passe e habilidade com os pés.\n")
+		escreva("Vai começar o seu jogo teste para o profissional! Os testes vão envolver chute, passe e habilidade com os pés.\n")
 		enter()
 		
 		limpa()
@@ -198,13 +203,13 @@ funcao partida_teste(){
 		aguarde()
 		
 		se(chute_teste1 == 1 ou chute_teste1 == 2){
-			escreva("BOA jovem gafonhoto!! Ótimo gol foi um gol de placa!\n")
+			escreva("Boa jovem gafonhoto!! Ótimo gol, foi um gol de placa!\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 3
 		}
 		senao se(chute_teste1 == 3){
-			escreva("Não foi dessa fez caro amigo! Seu chute bateu na trave!\n")
+			escreva("Não foi desta vez caro amigo! Seu chute bateu na trave!\n")
 			u.aguarde(700)
 			enter()
 			pontuacao_teste += 1
@@ -715,9 +720,23 @@ cadeia media
 		u.aguarde(1000)
 		limpa()
 		
-		linha()
-		escreva("Este foi o começo da sua jornado do seu modo carreira do Portugol Soccer!\n")
+		para (inteiro i = 0; i < 3; i++){
+			se(i != 1){
+			para(inteiro j=0; j <= 20; j++){
+				escreva("==")
+			}
+			}senao{
+				escreva("|         Este foi começo da sua        |\n")
+				escreva("|           da sua Jornada do           |\n")
+				escreva("|            Portugol Soccer!           |")
+			}
+			escreva("\n\n")
+			}
+		
 		enter()
+		
+		u.aguarde(700)
+		limpa()
 		
 }
 
@@ -773,19 +792,20 @@ funcao penalti(){
 
 		
 
+
+
+
 		
 }
-	
 } 
-
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1050; 
+ * @POSICAO-CURSOR = 22087; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {sexo, 9, 22, 4};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
